@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trst | Profile</title>
+    
+    <script>
+        window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>
+
     <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&family=Orbitron:wght@900&family=Permanent+Marker&family=Roboto+Mono:wght@700&family=Creepster&family=Silkscreen&family=UnifrakturMaguntia&family=Special+Elite&family=DotGothic16&family=Wallpoet&family=Audiowide&family=Michroma&family=Major+Mono+Display&family=VT323&family=Syncopate:wght@700&display=swap" rel="stylesheet">
     
     <style>
@@ -48,41 +54,38 @@ body::before {
 /* --- ส่วนที่ปรับปรุงเพื่อโทรศัพท์ --- */
 @media (max-width: 600px) {
     body::before {
-        /* ปรับให้ BG กว้างขึ้น/ขยายมากขึ้นบนมือถือ */
-        background-size: 150%; /* ปรับเลขนี้ได้ ถ้าอยากให้ภาพซูมเข้า/กว้างขึ้น */
-        background-position: 55% center; /* เลื่อนหาตำแหน่งซามูไรที่สวยที่สุด */
+        background-size: 150%; 
+        background-position: 55% center; 
     }
 
     .glass-container {
-        width: 85%; /* ให้กล่องกว้าง 85% ของจอ ไม่ติดขอบข้าง */
-        padding: 40px 20px; /* ลด padding เพื่อให้มีพื้นที่เหลือรอบกล่อง */
+        width: 85%; 
+        padding: 40px 20px; 
         border-radius: 25px;
-        margin: 20px; /* เว้นระยะห่างจากขอบจอทุกด้าน */
+        margin: 20px; 
     }
 
     .profile-wrapper {
-        width: 90px; height: 90px; /* ย่อขนาดรูปโปรไฟล์ลงนิดหน่อยบนมือถือ */
+        width: 90px; height: 90px; 
     }
 }
 
 
 /* ================= iPAD FIX ================= */
-/* ครอบคลุม iPad แนวตั้ง + แนวนอน */
 @media (min-width: 601px) and (max-width: 1024px) {
-
     body {
-        height: 100dvh; /* แก้บั๊ก vh บน iPad */
+        height: 100dvh; 
         overflow: hidden;
     }
 
     body::before {
-        background-size: 120%;   /* ซูม BG ให้พอดีแท็บเล็ต */
+        background-size: 120%;   
         background-position: center;
         filter: blur(10px) brightness(0.35);
     }
 
     .glass-container {
-        max-width: 520px;   /* กล่องใหญ่ขึ้นสำหรับจอ iPad */
+        max-width: 520px;   
         padding: 60px 40px;
         border-radius: 35px;
     }
@@ -115,7 +118,7 @@ body::before {
         padding: 10px 18px;
     }
 }
-/* ============================================ */
+
         #canvas-particle {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -129,7 +132,7 @@ body::before {
             font-size: 11px; 
             letter-spacing: 3px;
             padding: 10px 30px; 
-            border-radius: 50px; /* ทรงเหลี่ยมเพิ่มความดุ */
+            border-radius: 50px; 
             opacity: 0;
             transition: all 0.4s ease-in-out; 
             pointer-events: none;
@@ -137,7 +140,6 @@ body::before {
             font-family: 'Orbitron', sans-serif;
             font-weight: bold;
             text-transform: uppercase;
-            /* ออร่าวายร้ายแดงก่ำ */
             box-shadow: 
                 0 0 10px rgba(255, 0, 0, 0.6),
                 0 0 20px rgba(139, 0, 0, 0.4),
@@ -179,8 +181,6 @@ body::before {
              transition: transform 0.05s linear;
 }
 
-        
-
         .glass-container.show { opacity: 1; transform: translateY(0); }
 
         .profile-wrapper {
@@ -193,7 +193,6 @@ body::before {
             animation: breathe 4s ease-in-out infinite;
         }
 
-            
         .profile-inner {
             width: 100%; height: 100%;
             border-radius: 50%;
@@ -247,7 +246,6 @@ body::before {
             height: 40px; display: flex; justify-content: center; align-items: center;
         }
 
-        /* Glitch Animation พร้อมชุดฟอนต์ใหม่ทั้งหมด */
         .glitch { 
             display: inline-block; 
             animation: glitch-anim 1s infinite steps(1); 
@@ -284,30 +282,6 @@ body::before {
         .progress-fill { width: 0%; height: 100%; background: white; transition: width 0.1s linear; }
         .time { width: 100%; display: flex; justify-content: space-between; font-size: 10px; color: #666; margin-top: 8px; }
 
-        /* ===== CINEMATIC SPOTLIGHT ===== */
-.spotlight{
-    position: fixed;
-    top: -10%;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 75vw;
-    height: 90vh;
-    pointer-events: none;
-    z-index: 1;
-
-    background: radial-gradient(
-        ellipse at center top,
-        rgba(255,255,255,0.95) 0%,
-        rgba(180,210,255,0.6) 18%,
-        rgba(90,150,255,0.25) 40%,
-        rgba(0,0,0,0) 70%
-    );
-
-    filter: blur(40px);
-    opacity: 0.75;
-    animation: spotlightMove 8s ease-in-out infinite alternate;
-}
-
 /* ===== DARK VILLAIN SPOTLIGHT ===== */
 .spotlight{
     position: fixed;
@@ -318,7 +292,6 @@ body::before {
     height: 110vh;
     pointer-events: none;
     z-index: 1;
-
     background:
         radial-gradient(ellipse at center top,
             rgba(120,0,0,0.95) 0%,
@@ -327,21 +300,17 @@ body::before {
             rgba(25,0,0,0.45) 45%,
             rgba(0,0,0,0.9) 70%
         );
-
     filter: blur(60px) contrast(120%);
     opacity: 0.95;
-    animation: darkAuraMove 9s ease-in-out infinite alternate;
+    animation: darkAuraMove 3.5s ease-in-out infinite alternate;
 }
 
-/* หมอกแดงชั้นใน */
 .spotlight::before{
     content:"";
     position:absolute;
-    top:0;
-    left:50%;
+    top:0; left:50%;
     transform:translateX(-50%);
-    width:50%;
-    height:70%;
+    width:50%; height:70%;
     background:radial-gradient(
         ellipse at center,
         rgba(255,40,40,0.7),
@@ -352,27 +321,6 @@ body::before {
     opacity:0.85;
 }
 
-/* เส้นลำแสงดำแดงบาง ๆ */
-.spotlight::after{
-    content:"";
-    position:absolute;
-    top:0;
-    left:50%;
-    transform:translateX(-50%);
-    width:100%;
-    height:100%;
-    background:repeating-linear-gradient(
-        90deg,
-        rgba(255,0,0,0.05) 0px,
-        rgba(255,0,0,0.05) 2px,
-        transparent 3px,
-        transparent 7px
-    );
-    mix-blend-mode:overlay;
-    filter:blur(10px);
-    opacity:0.35;
-}
-
 @keyframes darkAuraMove{
   0%   { transform:translateX(-50%) scaleX(1);   opacity:.8; }
   20%  { transform:translateX(-49%) scaleX(1.05); opacity:1; }
@@ -381,13 +329,6 @@ body::before {
   100% { transform:translateX(-50%) scaleX(1);   opacity:.8; }
 }
 
-.spotlight{
-    animation: darkAuraMove 3.5s ease-in-out infinite alternate;
-}
-
-
-
-/* ออร่ารอบโปรไฟล์แบบตัวร้าย */
 .profile-wrapper{
     position:relative;
     z-index:2;
@@ -396,7 +337,6 @@ body::before {
         0 0 140px rgba(120,0,0,0.4),
         0 0 220px rgba(60,0,0,0.25);
 }
-
     </style>
 </head>
 <body>
@@ -428,7 +368,7 @@ body::before {
             <div class="time"><span id="current-time">0:00</span><span>2:35</span></div>
             <button id="play-pause-btn" onclick="toggleMusic()">PAUSE</button>
         </div>
-    <div class="title-bar"></div>
+    </div>
 
     <audio id="bg-music" loop><source src="1MILL.mp3" type="audio/mpeg"></audio>
 
@@ -537,155 +477,102 @@ body::before {
         }
         animate();
 
-        /* ========== RED FLASH REACTIVE AUDIO GRAPH ========== */
-const audioCtx6 = new (window.AudioContext || window.webkitAudioContext)();
-const src6 = audioCtx6.createMediaElementSource(music);
-const analyser6 = audioCtx6.createAnalyser();
+        /* Audio Visualizer */
+        const audioCtx6 = new (window.AudioContext || window.webkitAudioContext)();
+        const src6 = audioCtx6.createMediaElementSource(music);
+        const analyser6 = audioCtx6.createAnalyser();
 
-src6.connect(analyser6);
-analyser6.connect(audioCtx6.destination);
+        src6.connect(analyser6);
+        analyser6.connect(audioCtx6.destination);
+        analyser6.fftSize = 512;
+        const bufferLen6 = analyser6.frequencyBinCount;
+        const dataArr6 = new Uint8Array(bufferLen6);
+        let smoothBars6 = new Array(64).fill(0);
+        let flashPower = 0;
 
-analyser6.fftSize = 512;
-const bufferLen6 = analyser6.frequencyBinCount;
-const dataArr6 = new Uint8Array(bufferLen6);
+        function getBassImpact() {
+            analyser6.getByteFrequencyData(dataArr6);
+            let sum = 0;
+            for (let i = 0; i < 25; i++) sum += dataArr6[i];
+            return sum / 25 / 255; 
+        }
 
-let smoothBars6 = new Array(64).fill(0);
-let flashPower = 0;
+        function drawFlashingBars() {
+            analyser6.getByteFrequencyData(dataArr6);
+            const bass = getBassImpact();
+            if (bass > 0.35) flashPower = 1;
+            flashPower *= 0.88; 
+            const barCount = 56;
+            const step = Math.floor(bufferLen6 / barCount);
+            const baseY = canvas.height * 0.9;
+            const maxHeight = 140;
+            const totalWidth = canvas.width * 0.75;
+            const startX = (canvas.width - totalWidth) / 2;
+            const gap = 5;
+            const barWidth = (totalWidth - gap * (barCount - 1)) / barCount;
 
-function getBassImpact() {
-    analyser6.getByteFrequencyData(dataArr6);
-    let sum = 0;
-    for (let i = 0; i < 25; i++) sum += dataArr6[i];
-    return sum / 25 / 255; // 0–1
-}
+            ctx.save();
+            ctx.shadowBlur = 40 + flashPower * 60;
+            ctx.shadowColor = `rgba(255,0,0,${0.4 + flashPower})`;
 
-function drawFlashingBars() {
-    analyser6.getByteFrequencyData(dataArr6);
+            for (let i = 0; i < barCount; i++) {
+                let value = dataArr6[i * step] / 255;
+                smoothBars6[i] = smoothBars6[i] * 0.82 + value * 0.18;
+                const height = smoothBars6[i] * maxHeight + 4;
+                const x = startX + i * (barWidth + gap);
+                const y = baseY - height;
+                const glow = flashPower * 180;
+                const gradient = ctx.createLinearGradient(0, y, 0, baseY);
+                gradient.addColorStop(0, `rgba(255,${glow},${glow},1)`);
+                gradient.addColorStop(0.4, "rgba(220,0,0,0.9)");
+                gradient.addColorStop(1, "rgba(0,0,0,0.25)");
+                ctx.fillStyle = gradient;
+                const radius = barWidth / 2.2;
+                ctx.beginPath();
+                ctx.moveTo(x + radius, y);
+                ctx.lineTo(x + barWidth - radius, y);
+                ctx.quadraticCurveTo(x + barWidth, y, x + barWidth, y + radius);
+                ctx.lineTo(x + barWidth, baseY);
+                ctx.lineTo(x, baseY);
+                ctx.lineTo(x, y + radius);
+                ctx.quadraticCurveTo(x, y, x + radius, y);
+                ctx.fill();
+            }
+            ctx.restore();
+            requestAnimationFrame(drawFlashingBars);
+        }
+        drawFlashingBars();
 
-    const bass = getBassImpact();
+        document.body.addEventListener("click", () => {
+            if (audioCtx6.state === "suspended") audioCtx6.resume();
+        });
 
-    // ทำให้แสงแฟลชตามบีต
-    if (bass > 0.35) flashPower = 1;
-    flashPower *= 0.88; // ค่อยๆ ดับ
+        /* Bass Quake */
+        let quakePower = 0;
+        function applyBassQuake(){
+            const bass = getBassImpact();
+            if (bass > 0.38) quakePower = bass * 35;
+            quakePower *= 0.90;
+            const shakeX = (Math.random() - 0.5) * quakePower;
+            const shakeY = (Math.random() - 0.5) * quakePower * 0.7;
+            const rotate = (Math.random() - 0.5) * quakePower * 0.18;
+            document.body.style.setProperty('--bg-transform', `scale(1.18) translate(${shakeX}px, ${shakeY}px) rotate(${rotate}deg)`);
+            document.documentElement.style.setProperty('--glass-transform', `translate(${shakeX * -0.25}px, ${shakeY * -0.25}px)`);
+            requestAnimationFrame(applyBassQuake);
+        }
+        applyBassQuake();
 
-    const barCount = 56;
-    const step = Math.floor(bufferLen6 / barCount);
-    const baseY = canvas.height * 0.9;
-    const maxHeight = 140;
-
-    const totalWidth = canvas.width * 0.75;
-    const startX = (canvas.width - totalWidth) / 2;
-    const gap = 5;
-    const barWidth = (totalWidth - gap * (barCount - 1)) / barCount;
-
-    ctx.save();
-    ctx.shadowBlur = 40 + flashPower * 60;
-    ctx.shadowColor = `rgba(255,0,0,${0.4 + flashPower})`;
-
-    for (let i = 0; i < barCount; i++) {
-        let value = dataArr6[i * step] / 255;
-        smoothBars6[i] = smoothBars6[i] * 0.82 + value * 0.18;
-
-        const height = smoothBars6[i] * maxHeight + 4;
-        const x = startX + i * (barWidth + gap);
-        const y = baseY - height;
-
-        const glow = flashPower * 180;
-
-        const gradient = ctx.createLinearGradient(0, y, 0, baseY);
-        gradient.addColorStop(0, `rgba(255,${glow},${glow},1)`);
-        gradient.addColorStop(0.4, "rgba(220,0,0,0.9)");
-        gradient.addColorStop(1, "rgba(0,0,0,0.25)");
-
-        ctx.fillStyle = gradient;
-
-        const radius = barWidth / 2.2;
-
-        ctx.beginPath();
-        ctx.moveTo(x + radius, y);
-        ctx.lineTo(x + barWidth - radius, y);
-        ctx.quadraticCurveTo(x + barWidth, y, x + barWidth, y + radius);
-        ctx.lineTo(x + barWidth, baseY);
-        ctx.lineTo(x, baseY);
-        ctx.lineTo(x, y + radius);
-        ctx.quadraticCurveTo(x, y, x + radius, y);
-        ctx.fill();
-    }
-
-    ctx.restore();
-    requestAnimationFrame(drawFlashingBars);
-}
-drawFlashingBars();
-
-/* Safari unlock */
-document.body.addEventListener("click", () => {
-    if (audioCtx6.state === "suspended") audioCtx6.resume();
-});
-/* ==================================================== */
-
-/* ================= BASS EARTHQUAKE ADD-ON ================= */
-
-let quakePower = 0;
-
-function applyBassQuake(){
-    const bass = getBassImpact(); // ใช้ตัวเดิมของมึง
-
-    if (bass > 0.38) quakePower = bass * 35;
-    quakePower *= 0.90;
-
-    const shakeX = (Math.random() - 0.5) * quakePower;
-    const shakeY = (Math.random() - 0.5) * quakePower * 0.7;
-    const rotate = (Math.random() - 0.5) * quakePower * 0.18;
-
-    // สั่นพื้นหลัง
-    document.body.style.setProperty(
-        '--bg-transform',
-        `scale(1.18) translate(${shakeX}px, ${shakeY}px) rotate(${rotate}deg)`
-    );
-
-    // ให้กล่อง glass สั่นสวนทางเบา ๆ
-    document.documentElement.style.setProperty(
-        '--glass-transform',
-        `translate(${shakeX * -0.25}px, ${shakeY * -0.25}px)`
-    );
-
-    requestAnimationFrame(applyBassQuake);
-}
-
-applyBassQuake();
-
-/* ========================================================== */
-
-/* ===== FLOATING BG LAYER (NO EDIT OLD CODE) ===== */
-
-let floatTime = 0;
-
-function applyFloatingLayer(){
-    floatTime += 0.01;
-
-    // การลอยนุ่ม ๆ
-    const floatX = Math.sin(floatTime) * 12;
-    const floatY = Math.cos(floatTime * 0.8) * 8;
-    const floatScale = 1.18 + Math.sin(floatTime * 0.5) * 0.04;
-
-    // ดึงค่าแรงสั่นเดิมมารวม
-    const style = getComputedStyle(document.body);
-    const current = style.getPropertyValue('--bg-transform');
-
-    // ใส่ลอยทับเข้าไป
-    document.body.style.setProperty(
-        '--bg-transform',
-        `scale(${floatScale}) translate(${floatX}px, ${floatY}px)`
-    );
-
-    requestAnimationFrame(applyFloatingLayer);
-}
-
-applyFloatingLayer();
-
-/* ================================================ */
-
-
+        /* Floating Layer */
+        let floatTime = 0;
+        function applyFloatingLayer(){
+            floatTime += 0.01;
+            const floatX = Math.sin(floatTime) * 12;
+            const floatY = Math.cos(floatTime * 0.8) * 8;
+            const floatScale = 1.18 + Math.sin(floatTime * 0.5) * 0.04;
+            document.body.style.setProperty('--bg-transform', `scale(${floatScale}) translate(${floatX}px, ${floatY}px)`);
+            requestAnimationFrame(applyFloatingLayer);
+        }
+        applyFloatingLayer();
     </script>
 </body>
 </html>
